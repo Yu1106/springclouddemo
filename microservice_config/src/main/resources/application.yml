@@ -17,8 +17,8 @@ spring:
         git:
           uri: https://github.com/Yu1106/springcloud.git
           searchPaths: springcloud
-          username: fish731106@gmail.com
-          password: Home29698408
+          username: XXXX
+          password: XXXX
           default-label: master
   rabbitmq:
     host: 127.0.0.1
