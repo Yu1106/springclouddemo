@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: euraka-server
+# 單機版配置
+eureka:
+  client:
+    register-with-eureka: false # 是否要把該服務註冊到Eureka
+    fetch-registry: false # 是否需要從Eureka獲取註冊訊息
+    service-url: # 暴露Eureka註冊地址
+     defaultZone: http://127.0.0.1:${server.port}/eureka
+#  server:
+#    # 修改掃描失效服務間隔時間(默認是60s: 單位是毫秒)
+#    eviction-interval-timer-in-ms: 5000
+#    # 取消自我保護機制(默認是true)
+#    enable-self-preservation: false
+# 集群版配置
+#eureka:
+#  client:
+#    register-with-eureka: true # 是否要把該服務註冊到Eureka
+#    fetch-registry: true # 是否需要從Eureka獲取註冊訊息
+#    service-url: # 暴露Eureka註冊地址
+#      defaultZone: http://127.0.0.1:8888/eureka

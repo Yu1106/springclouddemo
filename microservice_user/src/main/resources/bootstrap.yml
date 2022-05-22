@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    config:
+      #      uri: http://127.0.0.1:12000 # 連接的SpringCloudConfig服務端地址
+      name: user # 配置文件的前綴
+      profile: dev # 配置文件的後綴
+      label: master # 需要獲取倉庫的分支名稱
+      discovery: # 從Eureka發現SpringCloudConfig具體服務
+        enabled: true
+        service-id: microservice-config
+  rabbitmq:
+    host: 127.0.0.1
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true

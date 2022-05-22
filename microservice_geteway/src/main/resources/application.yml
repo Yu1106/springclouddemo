@@ -1,0 +1,37 @@
+server:
+  port: 8222
+spring:
+  application:
+    name: microservice-geteway
+  zipkin:
+    base-url: http://127.0.0.1:9041
+    sender:
+      # kafka, rabbit
+      type: web
+  sleuth:
+    sampler:
+      # 日誌更新頻率
+      probability: 1
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true
+#zuul的動態路由配置 前提:轉發的路徑(path)和轉發的微服務名稱(serviceId)是一致的話, 那麼可以省略zuul的路由配置
+#zuul:
+#  routes:
+#    microservice-user:
+#      path: /microservice-user # 需要轉發的路徑
+#      serviceId: microservice-user # 最終轉發的微服務(名稱)
+#    microservice-movie:
+#      path: /microservice-movie # 需要轉發的路徑
+#      serviceId: microservice-movie # 最終轉發的微服務(名稱)
+
+#讓zuul預定義的異常過濾器失效
+zuul:
+  SendErrorFilter:
+    error:
+      disable: true

@@ -1,0 +1,29 @@
+server:
+  port: 12002
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: microservice-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Yu1106/springcloud.git
+          searchPaths: springcloud
+          username: fish731106@gmail.com
+          password: Home29698408
+          default-label: master
+  rabbitmq:
+    host: 127.0.0.1
+management: # 暴露觸發消息總線的地址
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
